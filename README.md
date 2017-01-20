@@ -1,13 +1,13 @@
-# @eagle/rumba
+# @lab009/erebus
 
 > Dead-simple API actions for Redux
 
 ## Install
 
 ```sh
-npm install --save @eagle/rumba
+npm install --save @lab009/erebus
 ```
 
 ## Repository
 
-https://github.com/Graf009/rumba.git
+https://github.com/lab009/erebus.git

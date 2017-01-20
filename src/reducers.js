@@ -63,7 +63,7 @@ const setSubsetError = (state, { meta: { subset }, payload }) => {
 
 // exported actions
 export const api = handleActions({ // eslint-disable-line import/prefer-default-export
-  'rumba.request': createSubset,
-  'rumba.failure': setSubsetError,
-  'rumba.success': compose(setSubsetData, addEntities),
+  'erebus.request': createSubset,
+  'erebus.failure': setSubsetError,
+  'erebus.success': compose(setSubsetData, addEntities),
 }, initialState)

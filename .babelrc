@@ -2,14 +2,14 @@
   "env": {
     "commonjs": {
       "presets": [
-        ["@eagle/babel-preset-eagle", {"loose": true}]
+        ["@lab009/babel-preset-lab009", {"loose": true}]
       ],
       "plugins": ["add-module-exports"]
     },
 
     "es": {
       "presets": [
-        ["@eagle/babel-preset-eagle", {"loose": true, "modules": false}]
+        ["@lab009/babel-preset-lab009", {"loose": true, "modules": false}]
       ]
     }
   }

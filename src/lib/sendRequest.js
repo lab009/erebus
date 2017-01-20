@@ -41,7 +41,7 @@ const checkResponce = ({ res, options }) => {
 
 const sendRequest = ({ options, dispatch }) => {
   dispatch({
-    type: 'rumba.request',
+    type: 'erebus.request',
     payload: options,
   })
 
@@ -55,7 +55,7 @@ const sendRequest = ({ options, dispatch }) => {
     })
     .then((res) => {
       dispatch({
-        type: 'rumba.success',
+        type: 'erebus.success',
         meta: options,
         payload: {
           raw: res.body,
@@ -66,7 +66,7 @@ const sendRequest = ({ options, dispatch }) => {
     })
     .catch((err) => {
       dispatch({
-        type: 'rumba.failure',
+        type: 'erebus.failure',
         meta: options,
         payload: err,
       })

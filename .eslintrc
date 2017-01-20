@@ -1,6 +1,3 @@
 {
-  "extends": "@eagle/eslint-config-eagle",
-  "rules": {
-    "new-cap": "warn"
-  }
+  "extends": "@lab009/eslint-config-lab009"
 }

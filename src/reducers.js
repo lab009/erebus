@@ -44,7 +44,7 @@ const setSubsetData = (state, { meta: { subset }, payload: { raw, normalized } }
         ? Set(ensureArray(normalized.result))
         : Set())
       .set('pending', false)
-      .set('error', null)
+      .set('error', null),
   )
 }
 
@@ -57,7 +57,7 @@ const setSubsetError = (state, { meta: { subset }, payload }) => {
       .delete('data')
       .delete('entities')
       .set('error', payload)
-      .set('pending', false)
+      .set('pending', false),
   )
 }
 

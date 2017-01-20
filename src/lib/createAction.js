@@ -53,8 +53,7 @@ export const mergeOptions = (defaults, opt, state) => mapValues(
   (v, k, { params = {} }) => {
     if (isReserved(k)) return v
     return result(v, params, state)
-  }
-)
+  })
 
 const createAction = (defaults = {}) => (opt = {}) => (dispatch, getState) => {
   const options = mergeOptions(defaults, opt, getState())

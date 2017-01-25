@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.reducers = exports.createAction = exports.unionOf = exports.valuesOf = exports.arrayOf = exports.Schema = undefined;
 
 var _normalizr = require('normalizr');
 
@@ -18,13 +19,9 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = {
-  Schema: _normalizr.Schema,
-  arrayOf: _normalizr.arrayOf,
-  valuesOf: _normalizr.valuesOf,
-  unionOf: _normalizr.unionOf,
-
-  createAction: _createAction2.default,
-  reducers: reducers
-};
-module.exports = exports['default'];
+exports.Schema = _normalizr.Schema;
+exports.arrayOf = _normalizr.arrayOf;
+exports.valuesOf = _normalizr.valuesOf;
+exports.unionOf = _normalizr.unionOf;
+exports.createAction = _createAction2.default;
+exports.reducers = reducers;

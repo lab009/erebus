@@ -4,10 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _toConsumableArray2 = require('C:\\cygwin64\\home\\o.orlov\\projects\\erebus\\node_modules\\babel-runtime/helpers/toConsumableArray');
-
-var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
-
 var _superagent = require('superagent');
 
 var _superagent2 = _interopRequireDefault(_superagent);
@@ -17,6 +13,8 @@ var _entify = require('./entify');
 var _entify2 = _interopRequireDefault(_entify);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 var prepareOptions = function prepareOptions(_ref) {
   var req = _ref.req,
@@ -44,7 +42,7 @@ var prepareOptions = function prepareOptions(_ref) {
     req.set({ 'Accept-Language': options.locale });
   }
   if (options.auth) {
-    req.auth.apply(req, (0, _toConsumableArray3.default)(options.auth));
+    req.auth.apply(req, _toConsumableArray(options.auth));
   }
 };
 

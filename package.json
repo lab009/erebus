@@ -30,8 +30,8 @@
     "lodash.merge": "4.6.0",
     "normalizr": "2.2.1",
     "reduce-reducers": "0.1.2",
-    "redux-actions": "1.2.0",
-    "superagent": "3.3.2"
+    "redux-actions": "1.2.1",
+    "superagent": "3.4.0"
   },
   "devDependencies": {
     "@lab009/babel-preset-lab009": "2.0.0",
@@ -42,7 +42,7 @@
     "babel-plugin-add-module-exports": "0.2.1",
     "babel-register": "6.22.0",
     "cross-env": "3.1.4",
-    "eslint": "3.13.1",
+    "eslint": "3.14.1",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "3.0.2",
     "eslint-plugin-react": "6.9.0",

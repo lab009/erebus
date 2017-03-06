@@ -1,8 +1,6 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 
 var _normalizr = require('normalizr');
 
@@ -11,5 +9,3 @@ exports.default = function (body, _ref) {
       model = _ref.model;
   return (0, _normalizr.normalize)(body, collection ? (0, _normalizr.arrayOf)(model) : model);
 };
-
-module.exports = exports['default'];

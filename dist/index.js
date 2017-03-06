@@ -1,8 +1,6 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.reducers = exports.createAction = exports.unionOf = exports.valuesOf = exports.arrayOf = exports.Schema = undefined;
 
 var _normalizr = require('normalizr');

@@ -1,3 +1,4 @@
 {
-  "extends": "@lab009/eslint-config-lab009"
+  "root": true,
+  "extends": "@lab009/eslint-config-magma"
 }

@@ -7,7 +7,3 @@
 ```sh
 npm install --save @lab009/erebus
 ```
-
-## Repository
-
-https://github.com/lab009/erebus.git

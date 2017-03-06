@@ -2,9 +2,9 @@
   "name": "@lab009/erebus",
   "version": "2.0.2",
   "description": "Dead-simple API actions for Redux",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lab009/erebus.git"
+  "repository": "lab009/erebus",
+  "bugs": {
+    "url": "https://github.com/lab009/erebus/issues"
   },
   "author": "Oleg Orlov <mail@orlovoleg.com>",
   "license": "MIT",
@@ -14,15 +14,27 @@
     "dist",
     "es"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "react",
+    "redux"
+  ],
   "scripts": {
-    "preversion": "npm run clean && npm run check && npm run build",
-    "clean": "rimraf dist es",
+    "build": "yarn run build:commonjs && yarn run build:es",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel --ignore **/__tests__ ./src -d ./dist",
+    "build:es": "cross-env BABEL_ENV=es  babel --ignore **/__tests__ ./src -d ./es",
+    "check": "yarn run lint && yarn run test",
+    "clean": "rimraf ./dist && rimraf ./es && rimraf ./coverage && rimraf ./flow-coverage",
+    "flow": "babel-node ./tools/scripts/flow",
+    "flow:coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text",
+    "flow:defs": "flow-typed install --overwrite",
     "lint": "eslint src",
-    "test": "cross-env BABEL_ENV=commonjs ava",
-    "check": "npm run lint && npm run test",
-    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir dist",
-    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
-    "build": "npm run build:commonjs && npm run build:es"
+    "preversion": "yarn run clean && yarn run build",
+    "test": "jest",
+    "test:coverage": "yarn run test -- --coverage",
+    "test:coverage:deploy": "yarn run test:coverage && codecov"
   },
   "dependencies": {
     "immutable": "3.8.1",
@@ -30,27 +42,39 @@
     "lodash.merge": "4.6.0",
     "normalizr": "2.2.1",
     "reduce-reducers": "0.1.2",
-    "redux-actions": "1.2.1",
-    "superagent": "3.4.0"
+    "redux-actions": "1.2.2",
+    "superagent": "3.5.0"
   },
   "devDependencies": {
-    "@lab009/babel-preset-lab009": "2.0.0",
-    "@lab009/eslint-config-lab009": "2.1.0",
-    "ava": "0.17.0",
-    "babel-cli": "6.22.2",
-    "babel-core": "6.22.1",
-    "babel-plugin-add-module-exports": "0.2.1",
-    "babel-register": "6.22.0",
-    "cross-env": "3.1.4",
-    "eslint": "3.14.1",
+    "@lab009/babel-preset-magma": "3.0.2",
+    "@lab009/eslint-config-magma": "3.0.3",
+    "babel-cli": "6.23.0",
+    "babel-core": "6.23.1",
+    "babel-jest": "19.0.0",
+    "codecov": "1.0.1",
+    "cross-env": "3.2.3",
+    "enzyme": "2.7.1",
+    "enzyme-to-json": "1.5.0",
+    "eslint": "3.16.1",
     "eslint-plugin-import": "2.2.0",
-    "eslint-plugin-jsx-a11y": "3.0.2",
-    "eslint-plugin-react": "6.9.0",
-    "rimraf": "2.5.4"
+    "eslint-plugin-jsx-a11y": "4.0.0",
+    "eslint-plugin-react": "6.10.0",
+    "jest": "19.0.2",
+    "react": "15.4.2",
+    "react-addons-test-utils": "15.4.2",
+    "react-dom": "15.4.2",
+    "rimraf": "2.6.1",
+    "sinon": "1.17.7"
   },
-  "ava": {
-    "require": [
-      "babel-register"
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/(dist|coverage|flow-typed|node_modules|tools|es)/"
     ]
   }
 }

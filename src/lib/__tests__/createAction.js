@@ -1,13 +1,12 @@
-import test from 'ava'
 import { fromJS } from 'immutable'
 
-import { mergeOptions } from '../src/lib/createAction'
+import { mergeOptions } from '../createAction'
 
-test('mergeOptions should exist', t => {
-  t.truthy(mergeOptions)
+it('mergeOptions should exist', () => {
+  expect(mergeOptions).toBeTruthy()
 })
 
-test('mergeOptions should merge correctly', t => {
+it('mergeOptions should merge correctly', () => {
   const defaults = {
     foo: 1,
     bar: 2,
@@ -16,10 +15,10 @@ test('mergeOptions should merge correctly', t => {
     foo: 3,
   }
 
-  t.deepEqual(mergeOptions(defaults, options), { foo: 3, bar: 2 })
+  expect(mergeOptions(defaults, options)).toEqual({ foo: 3, bar: 2 })
 })
 
-test('should apply defaults and convert non reserved functions to values', t => {
+it('should apply defaults and convert non reserved functions to values', () => {
   const defaults = {
     collection: false,
   }
@@ -27,7 +26,7 @@ test('should apply defaults and convert non reserved functions to values', t => 
     onResponse: () => 'response',
     onError: () => 'error',
     method: 'GET',
-    endpoint: (params) => `${params.string}/test`,
+    endpoint: params => `${params.string}/test`,
     params: {
       string: '/other',
     },
@@ -37,5 +36,5 @@ test('should apply defaults and convert non reserved functions to values', t => 
     updated.set('collection', false)
   })
 
-  t.deepEqual(mergeOptions(defaults, options), expected.toJS())
+  expect(mergeOptions(defaults, options)).toEqual(expected.toJS())
 })

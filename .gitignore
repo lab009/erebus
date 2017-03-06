@@ -1,14 +1,21 @@
-### OSX ###
-.DS_Store
+# Logs
+logs
+*.log
 
-### Intellij ###
-*.iml
-.idea/
-
-### Node ###
-npm-debug.log*
-
-# Dependency directory
+# Dependencies
 node_modules
 
-### Project out directory ###
+# Debug log from npm
+npm-debug.log
+
+# Jest
+coverage
+
+# Build output
+dist
+es
+build
+
+# Flow
+flow-coverage
+flow-typed

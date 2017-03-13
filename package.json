@@ -32,7 +32,7 @@
     "flow:defs": "flow-typed install --overwrite",
     "lint": "eslint src",
     "preversion": "yarn run clean && yarn run build",
-    "test": "jest",
+    "test": "cross-env BABEL_ENV=commonjs jest",
     "test:coverage": "yarn run test -- --coverage",
     "test:coverage:deploy": "yarn run test:coverage && codecov"
   },
